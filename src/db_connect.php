@@ -1,7 +1,7 @@
 <?php
 try {
-  if (getenv('JAWSDB_URL')){
-    // Heorku(JawsDB)
+  if (getenv('JAWSDB_URL')) {
+    // Heorku (JawsDB)
     $_url = parse_url(getenv('JAWSDB_URL'));
     $dbHost = $_url['host'];
     $dbPort = $_url['port'];
