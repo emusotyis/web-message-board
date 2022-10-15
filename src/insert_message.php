@@ -21,7 +21,7 @@ if (isset($_POST['author_name'])) {
 
 if ($is_valid_auther_name && mb_strlen($input_author_name) > 30) {
     $is_valid_auther_name = false;
-    $_SESSION['input_error_author_name'] = 'ニックネームは30文字以内で入力してください。(現在'.mb_strlen($input_author_name).'文字';^
+    $_SESSION['input_error_author_name'] = 'ニックネームは30文字以内で入力してください。(現在'.mb_strlen($input_author_name).'文字';
 }
 
 // 入力値を確認する（投稿内容）
@@ -63,10 +63,15 @@ if ($is_valid_auther_name && $is_valid_message) {
 
     // クエリを実行する
     $stmt->execute();
+    $_SESSION['action_success_text'] = '投稿しました';
+    $_SESSION['action_error_text'] = '';
     $_SESSION['input_error_author_name'] ='';
     $_SESSION['input_error_message'] = '';
     $_SESSION['input_pre_author_name'] = '';
     $_SESSION['input_pre_message'] = '';
+} else {
+    $_SESSION['action_success_text'] = '';
+    $_SESSION['action_error_text'] = '入力内容を確認してください';
 }
 
 header('Location: /');
